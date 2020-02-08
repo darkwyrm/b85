@@ -1,26 +1,9 @@
-package main
+package b85
 
 import (
 	"fmt"
 	"strings"
 )
-
-func main() {
-	fmt.Println("Base85 test")
-
-	testData := "E-mail has been around since the 1970s. Welcome to the upgrade."
-	encodedData := Encode([]byte(testData))
-
-	fmt.Printf("Input data (%d): '%s'\n", len(testData), testData)
-	fmt.Printf("Encoded data: '%s'\n", encodedData)
-
-	decodedData, err := Decode(encodedData)
-	if err != nil {
-		fmt.Printf("Error decoding data: %s", err)
-	} else {
-		fmt.Printf("Out data: '%s'\n", string(decodedData))
-	}
-}
 
 const b85chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&()*+-;<=>?@^_`{|}~"
 
