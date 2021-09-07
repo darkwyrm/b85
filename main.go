@@ -1,9 +1,12 @@
 package b85
 
 import (
+	"errors"
 	"fmt"
 	"strings"
 )
+
+var ErrDecodingB85 = errors.New("base85 decoding error")
 
 const b85chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&()*+-;<=>?@^_`{|}~"
 
@@ -89,7 +92,7 @@ func Decode(inData string) ([]byte, error) {
 			}
 			value, ok := decodeMap[inData[inIndex]]
 			if !ok {
-				return outData, fmt.Errorf("bad value %w in data", inData[inIndex])
+				return outData, fmt.Errorf("bad value %v in data", inData[inIndex])
 			}
 			accumulator = (accumulator * 85) + uint32(value)
 			inIndex++
@@ -117,7 +120,7 @@ func Decode(inData string) ([]byte, error) {
 				var ok bool
 				value, ok = decodeMap[inData[inIndex]]
 				if !ok {
-					return outData, fmt.Errorf("bad value %w in data", inData[inIndex])
+					return outData, fmt.Errorf("bad value %v in data", inData[inIndex])
 				}
 			} else {
 				value = 126
