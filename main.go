@@ -1,5 +1,7 @@
 package b85
 
+// This package implements the RFC 1924 Base 85 algorithm
+
 import (
 	"errors"
 	"fmt"
@@ -8,7 +10,8 @@ import (
 
 var ErrDecodingB85 = errors.New("base85 decoding error")
 
-const b85chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&()*+-;<=>?@^_`{|}~"
+const b85chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+	"abcdefghijklmnopqrstuvwxyz!#$%&()*+-;<=>?@^_`{|}~"
 
 var decodeMap map[byte]int
 

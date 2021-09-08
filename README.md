@@ -9,7 +9,7 @@ The variant implemented in RFC 1924 was originally intended for encoding IPv6 ad
 
 ## Usage
 
-As of the first release, there are only two methods: `Encode()` and `Decode()`. `Encode()` takes a `[]byte` array and returns a string. `Decode()` returns a `[]byte` array and an error code. The data returned should be considered valid only if `error` is nil. Both calls work completely from RAM, so processing huge files is probably not wise, but code to enable processing of large files will be implemented at a future time.
+As of the first release, there are only two methods: `Encode()` and `Decode()`. `Encode()` takes a `[]byte` array and returns a string. `Decode()` returns a `[]byte` array and an error code. The data returned should be considered valid only if `error` is nil. Both calls work completely from RAM, so processing huge files is probably not wise.
 
 ## Contributions
 
